@@ -19,8 +19,6 @@ data <- data %>%
 library(dplyr)
 data$Source <- tolower(data$Source)
 str(data)
-install.packages("tidyverse")
-library(tidyverse)
 # Add serial number column
 data <- data %>%
   mutate(Serial_Number = row_number())
