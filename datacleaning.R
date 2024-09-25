@@ -22,9 +22,6 @@ str(data)
 # Add serial number column
 data <- data %>%
   mutate(Serial_Number = row_number())
-data <- cbind(Serial_Number = seq_len(nrow(data)), data)
-library(dplyr)
-
 
 # Write the cleaned dataset to a CSV file named "cleaneddata.csv"
 write.csv(data, "cleaneddata.csv", row.names = FALSE)
