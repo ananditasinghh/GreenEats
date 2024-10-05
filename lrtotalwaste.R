@@ -21,11 +21,6 @@ data[is.na(data)] <- 0
 # Linear regression: Predict Total Waste based on Household and Retail Waste
 model <- lm(`combined.figures..kg.capita.year.` ~ `Household.estimate..tonnes.year.` + `Retail.estimate..tonnes.year.`, data = data)
 
-# Summary of the regression model
-summary(model)
-
-# Extract the fitted values from the linear regression model
-fitted_values <- predict(model)
 
 # Create a scatterplot of observed vs. fitted values
 plot(data$`combined.figures..kg.capita.year.`, fitted_values, 
