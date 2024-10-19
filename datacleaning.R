@@ -16,9 +16,7 @@ data <- data %>%
 data <- data %>%
   mutate(across(where(is.character), toupper))
 # Convert the "source" column to lowercase
-library(dplyr)
-data$Source <- tolower(data$Source)
-str(data)
+
 # Add serial number column
 data <- data %>%
   mutate(Serial_Number = row_number())
