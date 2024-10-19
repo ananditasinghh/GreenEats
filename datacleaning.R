@@ -23,4 +23,3 @@ data <- data %>%
 
 # Write the cleaned dataset to a CSV file named "cleaneddata.csv"
 write.csv(data, "cleaneddata.csv", row.names = FALSE)
-clearPushBack()
