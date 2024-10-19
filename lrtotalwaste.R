@@ -19,17 +19,20 @@ data <- data %>%
 data[is.na(data)] <- 0
 
 # Linear regression: Predict Total Waste based on Household and Retail Waste
-model <- lm(`combined.figures..kg.capita.year.` ~ `Household.estimate..tonnes.year.` + `Retail.estimate..tonnes.year.`, data = data)
+model <- lm(combined.figures..kg.capita.year. ~ Household.estimate..tonnes.year. + Retail.estimate..tonnes.year., data = data)
 
+# Summary of the regression model
+summary(model)
+
+# Extract the fitted values from the linear regression model
+fitted_values <- predict(model)
 
 # Create a scatterplot of observed vs. fitted values
-plot(data$`combined.figures..kg.capita.year.`, fitted_values, 
-     xlab = "Observed Total Waste (kg/capita/year)",
-     ylab = "Fitted Total Waste (kg/capita/year)",
-     main = "Observed vs. Fitted Values")
-
-# Add a diagonal line for reference
-abline(0, 1, col = "red")
+plot(data$combined.figures..kg.capita.year., fitted_values, 
+     ylab = "Observed Total Waste (kg/capita/year)",
+     xlab = "Fitted Total Waste (kg/capita/year)",
+     main = "Observed vs. Fitted Values",
+     pch = 16, col ='blue')
 
 
-colnames(data)
+abline(h = mean(fitted_values), col = "red", lty = 2)  # Red dashed line
